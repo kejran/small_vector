@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+	<Type Name="small_vector&lt;*, *, *&gt;">
+	<DisplayString Condition="capacity_ != $T3">{{size = {(int)count_}, storage = dynamic}</DisplayString>
+	<DisplayString Condition="capacity_ == $T3">{{size = {(int)count_}, storage = static}</DisplayString>
+	<Expand>
+		<ArrayItems Condition="capacity_ != $T3">
+			<Size>count_</Size>
+			<ValuePointer>
+				allocation_
+			</ValuePointer>
+		</ArrayItems>
+		<ArrayItems Condition="capacity_ == $T3">
+			<Size>count_</Size>
+			<ValuePointer>
+				($T1*)buffer_
+			</ValuePointer>
+		</ArrayItems>
+    </Expand>
+	</Type>
+</AutoVisualizer>
