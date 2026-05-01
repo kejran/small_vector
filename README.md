@@ -17,3 +17,12 @@ Initialize `small_vector<T, I, Size>`, where:
 The interface mimics a simplified `std::vector`. 
 
 Type `I` used for size and capacity can be customized to minimize the size of small vectors. Total size of the structure will be `2 * sizeof(I) + Size * sizeof(T)`, and align of `T` will be propagated.
+
+## Build and test
+
+The cmake target includes the library and optional tests. For most purposes, simply vendoring the library and adding the include path directly to the target will be enough.
+
+## Future plans
+
+* Add optional allocation profiler per source code location to help with sizing the sbo
+* More extensive tests
